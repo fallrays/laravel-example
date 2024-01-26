@@ -1,0 +1,77 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Boards",
+        "description": "Board API Documentation",
+        "contact": {
+            "name": "Board",
+            "email": "fallrays@gmail.com"
+        },
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/boards": {
+            "get": {
+                "tags": [
+                    "게시판"
+                ],
+                "summary": "게시글 목록",
+                "description": "게시글을 목록",
+                "operationId": "287af922459fd386b6c4dad400ce18ee",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "path",
+                        "description": "페이지번호",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": "1"
+                    },
+                    {
+                        "name": "perPage",
+                        "in": "path",
+                        "description": "페이지당 출력수",
+                        "required": false,
+                        "schema": {
+                            "type": "int"
+                        },
+                        "example": "10"
+                    }
+                ],
+                "requestBody": {
+                    "description": "게시글 정보",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "board_title": {
+                                        "description": "게시글 제목",
+                                        "type": "string",
+                                        "example": "공지사항입니다."
+                                    },
+                                    "board_content": {
+                                        "description": "게시글 내용",
+                                        "type": "string",
+                                        "example": "공지사항 내용입니다."
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Fail"
+                    }
+                }
+            }
+        }
+    }
+}
